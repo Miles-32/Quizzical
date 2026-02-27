@@ -1,0 +1,161 @@
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: Karla, sans-serif;
+  color: #293264;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Main Styles */
+
+main {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 20px;
+  z-index: 1;
+}
+
+main > h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+main > p.start-description {
+  font-size: 1rem;
+  margin: 15px auto 30px;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  border-bottom: 1px solid #DBDEF0;
+  width: 100%;
+  max-width: 450px;
+}
+
+.question {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 20px 0 0;
+}
+
+.answers-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.answer-button {
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #4D5B9E;
+  background-color: white;
+  color: #293264;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  min-height: 25px;
+}
+
+.answer-button.selected {
+  background-color: #D6DBF5;
+  border: none;
+}
+
+.answer-button.correct:disabled {
+  background-color: #94D7A2;
+  border: none;
+  opacity: 1;
+}
+
+.answer-button.incorrect {
+  background-color: #F8BCBC;
+  border: none;
+}
+
+.answer-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button.start-btn {
+  background-color: #4D5B9E;
+  font-family: inherit;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: #4D5B9E;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.submit-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.score {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* SVGs */
+
+.blob-blue {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.blob-blue.tucked {
+  bottom: -50px;
+  left: -50px;
+}
+
+.blob-yellow {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
