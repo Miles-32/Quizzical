@@ -2,8 +2,8 @@ A small quiz app built using React. The app uses the [Open Trivia DB](https://op
 
 Site is live! [Click here to check it out](https://milesquiz.netlify.app)
 
-Optimisations:
-❌ accessibility features
-❌ responsive UI
-❌ genre of questions option
-❌ difficulty of questions option
+Optimisations:\
+❌ accessibility features\
+❌ responsive UI\
+❌ genre of questions option\
+❌ difficulty of questions option\
