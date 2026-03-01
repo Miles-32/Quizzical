@@ -7,4 +7,4 @@ Optimisations:\
 ❌ Responsive UI\
 ❌ "Question genre" option\
 ❌ "Question difficulty" option\
-❌ Update to TypeScript \
+❌ Update to TypeScript\
