@@ -161,7 +161,7 @@ main > p.start-description {
 }
 
 /* Responsive Styles */
-@media (max-width: 380px) {
+@media (max-width: 450px) {
   .answers-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
