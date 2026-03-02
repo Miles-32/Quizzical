@@ -10,7 +10,6 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  overflow: hidden;
 }
 
 /* Main Styles */
@@ -22,7 +21,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   margin: 0 20px;
   z-index: 1;
 }
@@ -44,7 +42,8 @@ main > p.start-description {
   gap: 15px;
   border-bottom: 1px solid #DBDEF0;
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
+  padding-bottom: 10px;
 }
 
 .question {
@@ -63,7 +62,7 @@ main > p.start-description {
 
 .answer-button {
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 500;
@@ -76,6 +75,7 @@ main > p.start-description {
   justify-content: center;
   min-width: 70px;
   min-height: 25px;
+  flex-grow: 1;
 }
 
 .answer-button.selected {
@@ -99,7 +99,7 @@ main > p.start-description {
   opacity: 0.6;
 }
 
-button.start-btn {
+.start-btn {
   background-color: #4D5B9E;
   font-family: inherit;
   font-size: 1rem;
@@ -108,22 +108,21 @@ button.start-btn {
   border-radius: 10px;
   width: 200px;
   height: 50px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 
 .submit-btn {
   background-color: #4D5B9E;
   font-family: inherit;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
   color: white;
   border: none;
   border-radius: 10px;
-  width: 120px;
+  width: 150px;
   height: 40px;
   cursor: pointer;
-  margin: 0;
 }
 
 .submit-section {
@@ -131,8 +130,9 @@ button.start-btn {
   justify-content: center;
   align-items: center;
   gap: 25px;
-  margin-top: 20px;
   width: 100%;
+  margin-block: 15px;
+  text-align: center;
 }
 
 .score {
@@ -144,7 +144,7 @@ button.start-btn {
 /* SVGs */
 
 .blob-blue {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
 }
@@ -155,7 +155,64 @@ button.start-btn {
 }
 
 .blob-yellow {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 380px) {
+  .answers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  main {
+    margin: 0 60px;
+  }
+
+  main > h1 {
+    font-size: 3rem;
+  }
+
+  main > p.start-description {
+    font-size: 1.2rem;
+  }
+
+  .question-container {
+    max-width: 800px;
+    gap: 20px;
+  }
+
+  .question {
+    font-size: 1.2rem;
+  }
+
+  .answers-container {
+    gap: 15px;
+  }
+
+  .answer-button {
+    font-size: 1rem;
+    min-width: 120px;
+    min-height: 50px;
+  }
+
+  .start-btn {
+    width: 250px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+
+  .submit-btn {
+    width: 180px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .score {
+    font-size: 1.2rem;
+  }
 }

@@ -94,7 +94,7 @@ export default function App() {
         {screen === "start" && (
           <>
             <h1>Quizzical</h1>
-            <p className="start-description">Test your knowledge with our quiz app!</p>
+            <p className="start-description">Test your knowledge - how much do you know? 🤔</p>
             <button className="start-btn" onClick={handleStartClick}>Start quiz</button>
           </>
         )}
