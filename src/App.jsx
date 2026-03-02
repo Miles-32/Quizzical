@@ -27,11 +27,22 @@ export default function App() {
 
   const questionElements = questions.map((question, qi) => {
     return (
-      <div className="question-container" key={qi}>
-        <h2 className="question">{question.question}</h2>
-        <div className="answers-container">
+      <fieldset key={qi} className="question-container">
+        <legend className="question">{question.question}</legend>
+        <div className="answers-container" role="group" aria-label={`Answers for question ${qi + 1}`}>
           {question.answers.map((answer) => {
             const isSelected = selectedAnswers[qi] === answer;
+            const isCorrect = answer === question.correct;
+            let ariaLabel = answer;
+            
+            if (gameOver) {
+              if (isCorrect) {
+                ariaLabel = `${answer}, correct answer`;
+              } else if (isSelected && !isCorrect) {
+                ariaLabel = `${answer}, incorrect answer`;
+              }
+            }
+            
             return (
               <button
                 className={clsx("answer-button", {
@@ -42,13 +53,14 @@ export default function App() {
                 key={answer}
                 onClick={() => setSelectedAnswers((prev) => ({ ...prev, [qi]: answer }))}
                 disabled={gameOver}
+                aria-label={ariaLabel}
               >
                 {answer}
               </button>
             );
           })}
         </div>
-      </div>
+      </fieldset>
     );
   });
 
@@ -90,21 +102,22 @@ export default function App() {
   // Main Application //
   return (
     <>
-      <main>
+      <main aria-label="Quizzical quiz application">
         {screen === "start" && (
           <>
             <h1>Quizzical</h1>
             <p className="start-description">Test your knowledge - how much do you know? 🤔</p>
-            <button className="start-btn" onClick={handleStartClick}>Start quiz</button>
+            <button className="start-btn" onClick={handleStartClick} aria-label="Start the quiz">Start quiz</button>
           </>
         )}
         {screen === "quiz" && (
           <>
+            <h2 className="sr-only">Question {questions.length > 0 ? `1 of ${questions.length}` : ''}</h2>
             {questionElements}
             <section className="submit-section">
               {gameOver ?
                 <>
-                  <p className="score">You scored {numCorrect} out of {questionsLength}</p>
+                  <p className="score" role="status" aria-live="polite">You scored {numCorrect} out of {questionsLength}</p>
                   <button className="submit-btn" onClick={handleStartClick}>Play again</button>
                 </> :
                 <button className="submit-btn" onClick={checkAnswers}>Check answers</button>}
