@@ -4,7 +4,7 @@ Site is live! [Click here to check it out](https://milesquiz.netlify.app)
 
 Optimisations:\
 ❌ Accessibility Features\
-❌ Responsive UI\
+✔️ Responsive UI\
 ❌ "Question genre" option\
 ❌ "Question difficulty" option\
 ❌ Update to TypeScript
