@@ -45,7 +45,8 @@ main > h1 {
 
 main > p.start-description {
   font-size: 1rem;
-  margin: 15px auto 30px;
+  margin-block: 40px;
+  text-align: center;
 }
 
 .question-container {
@@ -66,7 +67,7 @@ main > p.start-description {
 .question {
   font-size: 1rem;
   font-weight: bold;
-  margin: 20px 0 0;
+  margin: 20px 0 10px;
   padding: 0;
 }
 
