@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 import { decode } from "he";
 import BlobBlue from "./components/BlobBlue";
@@ -10,18 +10,25 @@ export default function App() {
   const [questions, setQuestions] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({}); // key: question index -> answer text, e.g. {0: "blue"}
   const [gameOver, setGameOver] = useState(false);
+  const [questionCount, setQuestionCount] = useState("5");
+  const [questionDifficulty, setQuestionDifficulty] = useState("easy");
 
   // Derived Values //
   async function handleStartClick() {
-    const questions = await getQuestions()
+    const questions = await getQuestions(questionCount, questionDifficulty)
     setGameOver(false)
     setSelectedAnswers({})
     setQuestions(questions)
     setScreen("quiz")
   }
 
-  console.log(questions)
-  console.log(selectedAnswers)
+  useEffect(() => {
+    if (screen === "quiz" && questions.length > 0) {
+      setTimeout(() => window.scrollTo(0, 0), 0)
+    }
+  }, [questions])
+
+  
   const questionsLength = questions.length;
   const numCorrect = questions.filter((question, qi) => selectedAnswers[qi] === question.correct).length;
 
@@ -74,8 +81,8 @@ export default function App() {
       return answersShuffled;
   }
 
-  async function getQuestions() {
-    const response = await fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple");
+  async function getQuestions(amount = 5, difficulty = "easy") {
+    const response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=9&type=multiple&difficulty=${difficulty}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     return data.results.map((result) => {
@@ -95,7 +102,6 @@ export default function App() {
     questions.forEach((question, qi) => {
       if (selectedAnswers[qi] === question.correct) numCorrect++;
     });
-    console.log(numCorrect)
     setGameOver(true);
   }
 
@@ -106,7 +112,24 @@ export default function App() {
         {screen === "start" && (
           <>
             <h1>Quizzical</h1>
-            <p className="start-description">Test your knowledge - how much do you know? 🤔</p>
+            <p className="start-description">Test your knowledge - <span className="italic">how much do you know?</span> 🤔</p>
+            <div className="question-count-container">
+              <label htmlFor="question-count-input" className="start-description">Number of questions:</label>
+              <select id="question-count-input" className="question-count-select" value={questionCount} onChange={(e) => setQuestionCount(e.target.value)}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+            </div>
+            <div className="question-count-container">
+              <label htmlFor="question-difficulty-input" className="start-description">Difficulty:</label>
+              <select id="question-difficulty-input" className="question-count-select" value={questionDifficulty} onChange={(e) => setQuestionDifficulty(e.target.value)}>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
             <button className="start-btn" onClick={handleStartClick} aria-label="Start the quiz">Start quiz</button>
           </>
         )}
@@ -118,7 +141,10 @@ export default function App() {
               {gameOver ?
                 <>
                   <p className="score" role="status" aria-live="polite">You scored {numCorrect} out of {questionsLength}</p>
-                  <button className="submit-btn" onClick={handleStartClick}>Play again</button>
+                  <div className="buttons-container">
+                    <button className="submit-btn" onClick={handleStartClick}>Play again</button>
+                    <button className="submit-btn" onClick={() => setScreen("start")}>Back to start</button>
+                  </div>
                 </> :
                 <button className="submit-btn" onClick={checkAnswers}>Check answers</button>}
             </section>
