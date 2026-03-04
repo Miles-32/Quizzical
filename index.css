@@ -38,9 +38,17 @@ main {
   z-index: 1;
 }
 
-main > h1 {
+main h1 {
   font-size: 2rem;
   margin: 0;
+}
+
+.start-header { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 p.start-description {
@@ -263,8 +271,8 @@ label {
     margin: 0 60px;
   }
 
-  main > h1 {
-    font-size: 3rem;
+  main h1 {
+    font-size: 2.5rem;
   }
 
   main > p.start-description {

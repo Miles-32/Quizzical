@@ -1,3 +1,5 @@
+import QuizzicalIcon from "./QuizzicalIcon";
+
 export default function StartScreen({
   questionCount,
   questionDifficulty,
@@ -7,7 +9,10 @@ export default function StartScreen({
 }) {
     return (
         <>
-            <h1>Quizzical</h1>
+            <div className="start-header">
+                <QuizzicalIcon size={48} />
+                <h1>Quizzical</h1>
+            </div>
             <p className="start-description">Test your knowledge - <span className="italic">how much do you know?</span> 🤔</p>
 
             <div className="question-count-container">
