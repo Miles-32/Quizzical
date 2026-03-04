@@ -7,5 +7,5 @@ Optimisations:\
 ✔️ Responsive UI\
 ✔️ "Number of questions" option\
 ✔️ "Question difficulty" option\
-❌ Fix structure of codebase - make components\
+✔️ Fix structure of codebase - make components\
 ❌ Update to TypeScript
