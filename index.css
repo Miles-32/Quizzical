@@ -115,7 +115,7 @@ label {
   display: flex;
   gap: 10px;
   flex-wrap: nowrap;
-  align-items: flex-start;
+  align-items: stretch;
   width: 100%;
 }
 
