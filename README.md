@@ -19,6 +19,8 @@ A responsive, accessible quiz app built with **React** and the [Open Trivia DB A
 
 ## Tech Stack
 
+| Technology | Purpose |
+|---|---|
 | React | UI & component architecture |
 | JavaScript (ES6+) | Application logic |
 | React Hooks (useState, useEffect) | State & lifecycle management |
