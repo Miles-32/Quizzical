@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getQuestions } from "./utility/quizUtilities.js";
+import { getQuestions } from "./utility/quizUtilities";
 import StartScreen from "./components/StartScreen";
 import QuizScreen from "./components/QuizScreen";
 import BlobBlue from "./components/BlobBlue";
