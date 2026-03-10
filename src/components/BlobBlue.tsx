@@ -1,4 +1,8 @@
-export default function BlobBlue(props) {
+interface BlobBlueProps {
+  className: string;
+}
+
+export default function BlobBlue(props: BlobBlueProps) {
   return (
     <svg className={props.className} width="148" height="118" viewBox="0 0 148 118" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path fillRule="evenodd" 

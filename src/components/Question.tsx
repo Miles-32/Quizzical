@@ -1,5 +1,14 @@
 import clsx from "clsx";
 
+interface QuestionProps {
+  question: string;
+  answers: string[];
+  isSelected: string | null;
+  isCorrect: string;
+  selectAnswer: (answer: string) => void;
+  gameOver: boolean;
+}
+
 export default function Question({
   question,
   answers,
@@ -7,12 +16,12 @@ export default function Question({
   isCorrect,
   selectAnswer,
   gameOver,
-}) {
+}: QuestionProps) {
   return (
     <fieldset className="question-container">
       <legend className="question">{question}</legend>
       <div className="answers-container" role="group">
-        {answers.map((answer) => {
+        {answers.map((answer: string) => {
           const selected = isSelected === answer;
           const correct = answer === isCorrect;
           let ariaLabel = answer;
