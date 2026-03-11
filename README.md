@@ -36,4 +36,4 @@ A responsive, accessible quiz app built with **React** and the [Open Trivia DB A
 ✔️ "Number of questions" option\
 ✔️ "Question difficulty" option\
 ✔️ Fix structure of codebase - make components\
-❌ Update to TypeScript
+✔️ Update to TypeScript
