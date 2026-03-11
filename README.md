@@ -22,7 +22,7 @@ A responsive, accessible quiz app built with **React** and the [Open Trivia DB A
 | Technology | Purpose |
 |---|---|
 | React | UI & component architecture |
-| JavaScript (ES6+) | Application logic |
+| TypeScript | Application logic |
 | React Hooks (useState, useEffect) | State & lifecycle management |
 | Open Trivia DB API | Quiz question data |
 | CSS | Styling & responsive layout |
