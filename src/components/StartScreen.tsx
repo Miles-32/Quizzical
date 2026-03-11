@@ -1,4 +1,13 @@
 import QuizzicalIcon from "./QuizzicalIcon";
+import type { JSX } from "react";
+
+type StartScreenProps = {
+    questionCount: number
+    questionDifficulty: string
+    setQuestionCount: (count: number) => void
+    setQuestionDifficulty: (difficulty: string) => void
+    handleStartClick: () => void
+}
 
 export default function StartScreen({
   questionCount,
@@ -6,7 +15,7 @@ export default function StartScreen({
   setQuestionCount,
   setQuestionDifficulty,
   handleStartClick
-}) {
+}: StartScreenProps): JSX.Element {
     return (
         <>
             <div className="start-header">
@@ -17,11 +26,11 @@ export default function StartScreen({
 
             <div className="question-count-container">
                 <label htmlFor="question-count-input" className="start-description">Number of questions:</label>
-                <select id="question-count-input" className="question-count-select" value={questionCount} onChange={(e) => setQuestionCount(e.target.value)}>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
+                <select id="question-count-input" className="question-count-select" value={questionCount} onChange={(e) => setQuestionCount(Number(e.target.value))}>
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={15}>15</option>
+                <option value={20}>20</option>
                 </select>
             </div>
 

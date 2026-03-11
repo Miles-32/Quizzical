@@ -1,4 +1,8 @@
-export default function BlobYellow(props) {
+interface BlobYellowProps {
+  className: string;
+}
+
+export default function BlobYellow(props: BlobYellowProps) {
   return (
     <svg className={props.className} width="158" height="141" viewBox="0 0 158 141" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path fillRule="evenodd" 

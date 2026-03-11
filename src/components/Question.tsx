@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-interface QuestionProps {
+export interface QuestionProps {
   question: string;
   answers: string[];
   isSelected: string | null;

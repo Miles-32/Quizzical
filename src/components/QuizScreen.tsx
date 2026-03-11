@@ -1,4 +1,17 @@
 import Question from "./Question";
+import type {JSX} from "react";
+import type { Question as QuestionType } from "../utility/quizUtilities";
+import type { SelectedAnswer } from "../App";
+
+type QuizScreenProps = {
+    questions: QuestionType[]
+    selectedAnswers: SelectedAnswer[]
+    gameOver: boolean
+    selectAnswer: (questionIndex: number, answer: string) => void
+    checkAnswers: () => void
+    playAgain: () => void
+    backToStart: () => void
+}
 
 export default function QuizScreen({
     questions,
@@ -8,20 +21,20 @@ export default function QuizScreen({
     checkAnswers,
     playAgain,
     backToStart
-}) {
+}: QuizScreenProps): JSX.Element {
     const questionElements = questions.map((question, qi) => (
         <Question
             key={qi}
             question={question.question}
             answers={question.answers}
-            isSelected={selectedAnswers[qi]}
+            isSelected={selectedAnswers[qi]?.answer || null}
             isCorrect={question.correct}
             selectAnswer={(answer) => selectAnswer(qi, answer)}
             gameOver={gameOver}
         />
     ));
     const questionsLength = questions.length;
-    const numCorrect = questions.filter((question, qi) => selectedAnswers[qi] === question.correct).length;
+    const numCorrect = questions.filter((question, qi) => selectedAnswers[qi]?.answer === question.correct).length;
 
     return (
         <>

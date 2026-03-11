@@ -1,6 +1,6 @@
 import { decode } from "he";
 
-interface Question {
+export interface Question {
   question: string;
   answers: string[];
   correct: string;

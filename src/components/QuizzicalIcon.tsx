@@ -1,4 +1,6 @@
-export default function QuizzicalIcon({ size = 64 }) {
+import type { JSX } from "react";
+
+export default function QuizzicalIcon({ size = 64 }): JSX.Element {
   return (
     <svg
       width={size}
