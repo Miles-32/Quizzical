@@ -1,13 +1,13 @@
 import clsx from "clsx";
 
-export interface QuestionProps {
+export type QuestionProps = {
   question: string;
   answers: string[];
   isSelected: string | null;
   isCorrect: string;
   selectAnswer: (answer: string) => void;
   gameOver: boolean;
-}
+};
 
 export default function Question({
   question,

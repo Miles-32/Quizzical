@@ -1,6 +1,6 @@
-interface BlobYellowProps {
+type BlobYellowProps = {
   className: string;
-}
+};
 
 export default function BlobYellow(props: BlobYellowProps) {
   return (

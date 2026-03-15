@@ -1,10 +1,10 @@
 import { decode } from "he";
 
-export interface Question {
+export type Question = {
   question: string;
   answers: string[];
   correct: string;
-}
+};
 
 export async function getQuestions(
   amount: number = 5,
